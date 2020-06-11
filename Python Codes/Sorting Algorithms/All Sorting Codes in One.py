@@ -1,4 +1,6 @@
+#-------------------
 # Insertion Sort
+#-------------------
 def sort(L):
     if L == []: # Wenn die Leere Liste übergeben wird, dann wird diese zurück gegeben
         return []
@@ -15,6 +17,9 @@ def insert(x, L): # L = Die Restliste von der Ursprungsliste!!!
     else:   # An Sonsten muss man Rekursiv insert aufrufen für x und R
         return [y] + insert(x, R)
 
+#-------------------
+# Selection Sort
+#-------------------
 
 def sort(L):
     if L == []:
@@ -30,6 +35,9 @@ def delete(x, L):
         return L[1:]
     return [L[0]] + delete(x, L[1:])
 
+#-------------------
+# Merge Sort
+#-------------------
 
 def sort(L):
     n = len(L)
@@ -51,6 +59,9 @@ def merge(L1, L2):
     else:
         return [x2] + merge(L1, R2)
 
+#-------------------
+# Counting Sort
+#-------------------
 
 def countingSort(Names, Grades):
     assert len(Names) == len(Grades)
@@ -78,7 +89,9 @@ def countingSort(Names, Grades):
     return SortedNames, SortedGrades
 
 
-from CountingSort import *
+#-------------------
+# Counting Sort
+#-------------------
 
 def extractByte(n, k):
     return n >> (8 * (k - 1)) & 255
@@ -92,6 +105,9 @@ def radixSort(L):
     return L
 
 
+#-------------------
+# Heap Sort
+#-------------------
 
 def HeapSort(L):
     H = Nil()
