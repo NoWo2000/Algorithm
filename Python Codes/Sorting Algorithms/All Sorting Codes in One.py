@@ -16,9 +16,6 @@ def insert(x, L): # L = Die Restliste von der Ursprungsliste!!!
         return [y] + insert(x, R)
 
 
-print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
-
-
 def sort(L):
     if L == []:
         return []
@@ -32,9 +29,6 @@ def delete(x, L):
     if L[0] == x:
         return L[1:]
     return [L[0]] + delete(x, L[1:])
-
-
-print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
 
 
 def sort(L):
@@ -56,8 +50,6 @@ def merge(L1, L2):
         return [x1] + merge(R1, L2)
     else:
         return [x2] + merge(L1, R2)
-
-print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
 
 
 def countingSort(Names, Grades):
@@ -99,8 +91,6 @@ def radixSort(L):
 
     return L
 
-
-print(radixSort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
 
 
 def HeapSort(L):
