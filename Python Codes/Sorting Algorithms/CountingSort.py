@@ -23,8 +23,8 @@ def countingSort(Names, Grades):
         Indices[grade] += 1
     return SortedNames, SortedGrades
 
-
-#Der folgende Code dient nur zur Veranschaulichungszwecken des Algorithmus
+'''
+#Der folgende Code dient nur zur Veranschaulichungszwecken de
 Data = [
     ('Alexander', 4),
     ('Benjamin', 2),
@@ -58,3 +58,5 @@ SortedData = zip(SortedNames, SortedGrades)
 
 for n, g in SortedData:
         print('%-9s: %1d' % (n, g))
+        
+'''
