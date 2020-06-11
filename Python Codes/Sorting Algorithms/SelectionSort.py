@@ -12,5 +12,4 @@ def delete(x, L):
         return L[1:]
     return [L[0]] + delete(x, L[1:])
 
-
 print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
