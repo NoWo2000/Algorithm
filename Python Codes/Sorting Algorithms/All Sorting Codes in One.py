@@ -22,10 +22,10 @@ def insert(x, L): # L = Die Restliste von der Ursprungsliste!!!
 #-------------------
 
 def sort(L):
-    if L == []:
+    if L == []: # Wenn die leere Liste sortiert werden soll, dann wird diese einfach zurück gegeben
         return []
-    x = min(L)
-    return [x] + sort(delete(x, L))
+    x = min(L) # An Sonsten wird das Minimum aus der List genommen
+    return [x] + sort(delete(x, L)) # Das Minimum wird aus der Liste gelöscht und vor die Restliste gesetzt
 
 
 def delete(x, L):
@@ -41,23 +41,36 @@ def delete(x, L):
 
 def sort(L):
     n = len(L)
-    if n < 2:
+    if n < 2: # wenn die Liste aus einem oder keinem Element besteht, dann wird diese so zurück gegeben
         return L
-    L1, L2 = L[:n // 2], L[n // 2:]
-    return merge(sort(L1), sort(L2))
+    L1, L2 = L[:n // 2], L[n // 2:] # Sonst wird die Liste in zwei gleich große Teillisten aufgeteilt
+    return merge(sort(L1), sort(L2)) # rekursiver Aufruf von Merge mit beiden Teillisten, welche wieder sortiert werden.
 
 
 def merge(L1, L2):
-    if L1 == []:
+    if L1 == []: # Ist die eine Liste leer, dann wird die andere zurück gegeben
        return L2
     if L2 == []:
         return L1
-    x1, R1 = L1[0], L1[1:]
+    x1, R1 = L1[0], L1[1:] # An Sonsten werden beide Listen aufgeteilt in Anfangselement und Restliste
     x2, R2 = L2[0], L2[1:]
-    if x1 <= x2:
-        return [x1] + merge(R1, L2)
+    if x1 <= x2: # Wenn das erste Element x1 von der ersten liste kleiner ist als erste der zweiten x2, dann
+        return [x1] + merge(R1, L2) # wird x1 zu der gemergten Liste von R1 und L2 hinzugefügt.
     else:
-        return [x2] + merge(L1, R2)
+        return [x2] + merge(L1, R2) # Sonst x2 vor merge(L1,R2)
+
+#-------------------
+# Quick Sort
+#-------------------
+
+def sort(L):
+    if L == []: # Wenn die leere Liste sortiert werden soll, dann wird diese einfach zurück gegeben
+        return L
+    x, R = L[0], L[1:] # L wird aufgeteilt in das erste Element x und die Restliste R
+    S = [y for y in R if y <= x] # Alle Elemente kleiner als x kommen in die Liste S
+    B = [y for y in R if y > x] # Alle Elemente größer als x kommen in die Liste B
+
+    return sort(S) + [x] + sort(B) # Liste S, das Element x und die Liste B werden zusammen geführt
 
 #-------------------
 # Counting Sort
