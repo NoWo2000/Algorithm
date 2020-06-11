@@ -1,17 +1,18 @@
+# Insertion Sort
 def sort(L):
-    if L == []:
+    if L == []: # Wenn die Leere Liste übergeben wird, dann wird diese zurück gegeben
         return []
-    x, R = L[0], L[1:]
-    return insert(x, sort(R))
+    x, R = L[0], L[1:] # L wird aufgeteilt in das erste Element x und die Restliste R
+    return insert(x, sort(R)) # rekursiver Aufruf von insert mit x und R
 
 
-def insert(x, L):
+def insert(x, L): # L = Die Restliste von der Ursprungsliste!!!
     if L == []:
-        return [x]
-    y, R = L[0], L[1:]
-    if x <= y:
+        return [x]  # Wenn diese Liste 'L' leer ist, dann bestand L nur aus einem Element x und dieses wird zurück gegeben
+    y, R = L[0], L[1:] # Die Restliste wird noch eine Mal aufgeteilt in erstes Elenent y und Rest R
+    if x <= y: # Wenn x <= y ist, dann wird x vor L eingefügt
         return [x] + L
-    else:
+    else:   # An Sonsten muss man Rekursiv insert aufrufen für x und R
         return [y] + insert(x, R)
 
 
