@@ -7,4 +7,5 @@ def sort(L):
 
     return sort(S) + [x] + sort(B)
 
+
 print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
