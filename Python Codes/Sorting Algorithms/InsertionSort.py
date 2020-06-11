@@ -15,4 +15,4 @@ def insert(x, L):
         return [y] + insert(x, R)
 
 
-print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3, 11, 14, 13, 12, 15]))
+print(sort([9, 7, 8, 0, 5, 6, 4, 1, 2, 3]))
