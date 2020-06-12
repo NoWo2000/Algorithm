@@ -10,8 +10,7 @@ def sort(L):
 
 def insert(x, L):  # L = Die Restliste von der Ursprungsliste!!!
     if L == []:
-        return [
-            x]  # Wenn diese Liste 'L' leer ist, dann bestand L nur aus einem Element x und dieses wird zurück gegeben
+        return [x]  # Wenn diese Liste 'L' leer ist, dann bestand L nur aus einem Element x und dieses wird zurück gegeben
     y, R = L[0], L[1:]  # Die Restliste wird noch eine Mal aufgeteilt in erstes Elenent y und Rest R
     if x <= y:  # Wenn x <= y ist, dann wird x vor L eingefügt
         return [x] + L
