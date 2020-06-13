@@ -1,0 +1,199 @@
+\documentclass[12px,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage[document]{ragged2e}
+\usepackage{enumerate}
+\usepackage{amssymb}
+
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE DHBW Manhheim \par}
+	\vspace{1cm}
+	{\scshape\Large 2. Semester Cyber Security\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Algorithmen und Komplexität\par}
+	\vspace{2cm}
+	{\Large\itshape N.W. \& J.T\par}
+	\vfill
+
+% Bottom of the page
+	{\large \today\par} 
+\end{titlepage}
+\newpage
+\justify
+
+\section*{Aufgabe Nr. 1}
+\subsection*{Eigenschaften der Groß-O-Notation}
+\begin{enumerate}
+	\item Geben Sie die Definition der $\mathcal{O}$-Notation an.
+	\item Es sei $f \in \mathcal{O}(h_1)$ und $g \in \mathcal{O}(h_2)$. Zeigen Sie, dass $f \cdot g \in \mathcal{O}(h_1 \cdot h_2)$ gilt.
+	\item Beweisen Sie, dass für alle $f: \mathbb{N} \rightarrow \mathbb{R}_+$ gilt, dass $f \in \mathcal{O}(f)$.
+	\item Beweisen Sie, dass für $f, \: g: \mathbb{N} \rightarrow \mathbb{R}_+$ und $d \in \mathbb{R}_+$ gilt, dass \\ \noindent\hspace*{5mm} $g \in \mathcal{O}(f) \rightarrow d \cdot g \in \mathcal{O}(f)$.
+	\item Beweisen Sie, dass für $f, \: g, \: h: \mathbb{N} \rightarrow \mathbb{R}_+$ gilt, dass \\ \noindent\hspace*{5mm} $f \in \mathcal{O}(h) \ \land g \in \mathcal{O}(h) \rightarrow f+g \in \mathcal{O}(h)$.
+	\item Beweisen Sie, dass für $f, \: g, \: h: \mathbb{N} \rightarrow \mathbb{R}_+$ gilt, dass \\ \noindent\hspace*{5mm} $f \in \mathcal{O}(g) \ \land g \in \mathcal{O}(h) \rightarrow f \in \mathcal{O}(h)$.
+	\item Angenommen $f, \: g, \: h: \mathbb{N} \rightarrow \mathbb{R}_+$. Außerdem wird angenommen, dass der Grenzwert von  \noindent\hspace*{5mm}  $$\lim\limits_{n \rightarrow \infty} \frac{f(n)}{g(n)}$$ existiert. Beweisen sie, dass dann auch $f \in \mathcal{O}(g)$ gilt.
+	\item Es seien $f, \: g \in \mathbb{R}_+$. Geben Sie die Definition $f \sim g$ an.
+\end{enumerate}
+
+\newpage
+\section*{Aufgabe Nr. 2}
+\subsection*{Groß-O-Notation}
+\begin{enumerate}
+	\item Zeigen Sie, dass $n^2 \in \mathcal{O}(2^n)$ ist.
+	\item Zeigen Sie auch, dass $n^3 \mathcal{O}(2^n)$ gilt.
+	\item Zeigen Sie: $ \log_2(n) \in \mathcal{O}(\ln(n+1)) $
+	
+	\item Zeigen Sie, dass $\ln^2 (n) \in \mathcal{O}(\sqrt{n})$ gilt.
+	\item Versuchen Sie zu zeigen, dass $n^{\alpha} \in \mathcal{O}(2^n)$, wenn angenommen werden kann, dass $\alpha \in \mathbb{N}$ vorausgesetzt ist.
+\end{enumerate}
+\newpage
+\section*{Aufgabe Nr. 3}
+\subsection*{Rekurrenzgleichungen}
+Lösen Sie folgende Rekurrenzgleichungen: \\
+\begin{enumerate}
+	\item $x_{n+2}=x_{n+1} + x_n$ für welche gilt:	$x_0 = 0$ und $x_1 =1$
+	\item $x_{n+2}=4 \cdot x_{n+1} - 4 \cdot x_n +1$ für welche gilt:	$x_0=1$ und $x_1=3$
+	\item $a_{n+2} = \frac{1}{6} \cdot a_{n+1} + \frac{1}{6} \cdot a_n$ für welche gilt:	$a_0 = 0$ und $a_1 = \frac{5}{6}$
+	\item $a_{n+2} = -\frac{1}{2} \cdot a_{n+1} + \frac{1}{2} \cdot a_n$ für welche gilt: $a_0 = 2$ und $a_1 = 1$
+	\item $a_{n+2} = a_{n+1} + 2 \cdot a_n +1$ für welche gilt:	$a_0 = 0$ und $a_1 = - \frac{1}{2}$
+	\item $a_{n+2} = a_n +2$ für welche gilt:	$a_0 = 2$ und $a_1 = 1$
+	\item $a_{n+2} = 2 \cdot a_n - a_{n+1}$ für welche gilt:	$a_0 = 0$ und $a_0 = 3$
+	\item $a_{n+2} = 7 \cdot a_{n+1} - 10 \cdot a_n$ für welche gilt:	$a_0 = 0$ und $a_0 = 3$
+	\item $a_{n+1} = 2^n \cdot a_n$ für welche gilt: $a_1 = 1$
+	\item Stellen Sie mit dem Ansatz $a_k := f(2^k)$ eine Rekurrenzgleichung auf und lösen Sie diese.\\ 
+			\noindent\hspace*{5mm} $f(n) = 2 \cdot f(n\backslash 2) + \log_2(n)$ \\
+			Es gelten folgende Anfangsbedingungen:	$x_0 = 0$ und $x_1 = 1$
+\end{enumerate}
+\newpage
+\section*{Aufgabe Nr. 4}
+\subsection*{Master Theorem}
+\begin{enumerate}
+	\item Geben Sie die Definition des Master-Theorems an.
+	\item Schätzen Sie mit Hilfe des Master-Theorems die Komplexität von f ab. \\
+	\noindent\hspace*{0.5mm} $f(n) = 2 \cdot f(n\backslash 2) + n$
+	\item Schätzen Sie $g(n) = 4 \cdot g(n\backslash 3) + ( \frac{2}{3} ) ^2 \cdot n$ mit Hilfe des Master-Theorems ab.
+	\item Schätzen Sie $g(n) = 4 \cdot g(n\backslash 5) + ( \frac{3}{2} ) ^3 \cdot n^2$ mit Hilfe des Master-Theorems ab.
+	\item Schätzen Sie $g(n) = 4 \cdot g(n\backslash 3) + 2 \cdot n^{\log_3(4)} + n$ mit Hilfe des Master-Theorems ab.
+\end{enumerate}
+\newpage
+\section*{Aufgabe Nr. 5}
+\begin{enumerate}
+	\item Geben Sie die Gleichung an, mit der wir Merge Sort definiert haben. Alternativ ist auch der Pythoncode von Merge Sort akzeptabel.
+	\item Wir haben die Funktion, die für zwei sortierte Listen $L_1, L_2$ berechnet, wie viele Vergleichsoperationen beim Aufruf von $merge(L_1, L2)$ geschehen, mit $cmpCount$ bezeichnet. geben Sie die Ungleichung an, die wir für das Verhältnis zwischen $\#L_1, \#L_2$ und $cmpCount(L_1, L_2)$ aufgestellt haben. 
+	\item Schätzen Sie mit Hilfe des Master-Theorems die Komplexität von $Merge Sort$ ab.
+\end{enumerate}
+\newpage
+\section*{Aufgabe Nr. 6}
+\subsection*{Sortierproblem}
+\begin{enumerate}
+	\item Definieren Sie:	
+	\begin{enumerate} 
+	\item Partielle Ordnung
+	\item Lineare Ordnung
+	\item Quasiordnung
+	\item Totale-Quasiordnung
+	\end{enumerate}
+	
+	\item Geben Sie die Definition des Sortierproblems an.
+\end{enumerate}
+\newpage
+\section*{Aufgabe Nr. 7}
+\subsection*{Sortieralgorithmen}
+\begin{enumerate}
+	\item Insertion Sort
+	\begin{enumerate}
+	\item Formale Defintion
+	\item Implementierung 
+	\item Komplexität
+	\end{enumerate}
+	\item Selection Sort
+	\begin{enumerate}
+	\item Formale Defintion
+	\item Implementierung 
+	\item Komplexität
+	\end{enumerate}
+	\item Merge Sort
+	\begin{enumerate}
+	\item Formale Defintion
+	\item Implementierung 
+	\item Komplexität
+	\item Komplexität im Master-Theorem
+	\end{enumerate}
+	\item Quicksort
+	\begin{enumerate}
+	\item Formale Defintion
+	\item Implementierung 
+	\item Komplexität
+	\end{enumerate}
+	\item Counting Sort
+	\begin{enumerate}
+	\item Formale Defintion mit allen Phasen
+	\item Implementierung 
+	\item Komplexität
+	\end{enumerate}
+	\item Radix Sort
+	\begin{enumerate}
+	\item Vorgehensweise
+	\item Implementierung 
+	\end{enumerate}
+	\item Heapsort
+	\begin{enumerate}
+	\item Formale Defintion
+	\item Implementierung 
+	\item Komplexität
+	\end{enumerate}
+\end{enumerate}
+\newpage
+
+\section*{Aufgabe Nr. 8}
+\subsection*{ADTs + Set und Maps}
+\begin{enumerate}
+	\item Geben Sie die formale Definition von ADTs an.
+	\item Geben Sie die formale Definition des ADT Stack an.
+	\item Beschreiben Sie was ein Generator in einem 
+	\item Beschreiben Sie den Shunting-Yard-Algorithmus.
+	\item Geben Sie die formale Definition des ADT Map an.
+	\item Was haben geordnete Binärbäume, AVL Bäume, Tries und co. miteinander zu tun, was verbindet sie?
+	\item Geben Sie die formale Definition und die Komplexität von geordneten Binärbäumen an.
+	\item Geben Sie die formale Definition und die Komplexität von AVL Bäumen an.
+	\item Geben Sie die formale Definition und die Komplexität von Tries an.
+	\item Beschreiben Sie, was eine Prioritätswarteschlange ist. 
+	\item Geben Sie die formale Definition und die Komplexität von Prioritätswarteschlangen an.
+	\item Geben Sie die formale Definition und die Komplexität des Heaps an.
+\end{enumerate}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
