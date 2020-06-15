@@ -63,7 +63,7 @@ $$\mathcal{O} (g) := \{ f \in \mathbb{R}_+^{\mathbb{N}} | \exists k \in \mathbb{
 	 und dies bestätigt die Behauptung, dass $f + g \in \mathcal{O}(h) $ gilt.\\
 
 % Transitivität der O-Notation
-\subsubsection{Transitivität der O-Notation}
+\subsubsection{Transitivität der $\mathcal{O}$-Notation}
 \textbf{Behauptung:} Angenommen sei, dass $f, g, h: \mathbb{N} \rightarrow \mathbb{R}_+$ gegeben sei. Dann gilt: $$f \in \mathcal{O}(g) \land g \in \mathcal{O}(h) \rightarrow f \in \mathcal{O}(h) $$ \\
 
 \textbf{Beweis:} Die Voraussetzungen $f \in \mathcal{O} (g)$ und $g \in \mathcal{O} (h)$  implizieren, dass es die Konstanten $c_1, c_2 \in \mathbb{R}_+$ und $k_1, k_2\in \mathbb{N}$ gibt, so dass die folgenden Aussagen zutreffend sind: $$\forall n \in \mathbb{N} : (n \geq k_1 \rightarrow f(n) \leq c_1 \cdot g(n))$$ 
