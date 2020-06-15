@@ -1,0 +1,128 @@
+\documentclass[12px,a4paper]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{amssymb}
+\usepackage{fontspec}
+
+\title{Algotithmen und Komplexität \cite{Stroetmann:Genius}}
+\author{Noah Wollenhaupt}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+%Main Document Beginn
+\section{Groß-$\mathcal{O}$-Notation}
+\subsection{Motivation}
+Wie berechnen Rechner die Zeiten eines Algorithmus?
+\begin{enumerate}
+	\item Implementierung in Programmiersprache 
+	\item Zählen von arithmetischen Operationen und Speicherzugriffen
+	\item Nachschlagen der Zeit der Operationen im Prozessorhandbuch
+	\item Berechnung der Rechenzeit
+
+\end{enumerate} 
+
+\setlength{\parindent}{0pt} 
+Die Groß-O-Notation ist eine abstrakte Möglichkeit, die das Wachstum der Rechenzeit in Abhängigkeit von der Größe der Eingabe beschreiben. Die O-Notation soll von konstanten Faktoren und unwesentlichen Thermen abstrahieren. Man definiert einen X-Wert (k), ab dem die Funktion f(x) immer unter g(x) liegt. Das \textbf{c} muss  definiert werden und gibt einen Faktor der Funktion g(x) an, für welche dann das Wachstum von f(x) ab \textbf{k}  immer unterhalb von g(x) verläuft. \\
+
+\subsection{Defintion der $\mathcal{O}$-Notation}
+$$\mathcal{O} (g) := \{ f \in \mathbb{R}_+^{\mathbb{N}} | \exists k \in \mathbb{N} : \exists c \in \mathbb{R}_+ \forall n \in \mathbb{N} : (n \geq k \rightarrow f(n) \leq c \cdot g(n) ) \}$$
+
+%Eigenschaften der O-Noation
+\subsection{Eigenschaften der $\mathcal{O}$-Notation}
+	Die $\mathcal{O}$ - Notation verfügt über mehrere Eigenschaften, welche im 
+	Folgenden einzeln bewiesen werden. 
+
+%Reflexivität der O-Notation
+	\subsubsection{Reflexivität}
+	\textbf{Behauptung:} Für alle $f: \mathbb{N} \rightarrow \mathbb{R}_+$ gilt, dass $f \in \mathcal{O} (f)$. \\
+	\textbf{Beweis:} Wir definieren $k:= 0$ und $c:=1$. Dann folgt unsere Behauptung direkt aus der Ungleichung. $$\forall n \in \mathbb{N} : f(n) \leq f(n)$$
+
+%Multiplikation mit konstanten Faktoren
+\subsubsection{Multiplikation mit konstanten Faktoren}
+\textbf{Behauptung:} Angenommen sei, dass $f, g: \mathbb{N} \rightarrow \mathbb{R}_+$ gegeben sei und  $d \in \mathbb{R}_+$ gegeben sei. Dann gilt: $$g \in \mathcal{O} (f) \rightarrow d \cdot g \in \mathcal{O}(f) $$ \\
+\textbf{Beweis:} Die Voraussetzung $g \in \mathcal{O} (f)$ impliziert, dass es die Konstanten $c' \in \mathbb{R}_+$ und $k' \in \mathbb{N}$ gibt, so dass $$\forall n \in \mathbb{N} : (n \geq k' \rightarrow g(n) \leq c' \cdot f(n))$$ gilt. Wenn man nun Ungleichung, welche $g(n)$ enthält, mit $d$ multipliziert, bekommt man folgende Gleichung: $$\forall n \in \mathbb{N} : (n \geq k' \rightarrow d \cdot g(n) \leq d \cdot c' \cdot f(n))$$ 
+	Wenn man nun die Konstanten als $k:=k'$ und $c:= d \cdot c'$ definiert, dann erhält man wiederum folgende Gleichung: $$\forall n \in \mathbb{N} : (n \geq k \rightarrow g(n) \leq c \cdot f(n))$$ Nach der Definition der $\mathcal{O}-Notaion$, dass $d \cdot g \in \mathcal{O}(f)$ gilt. 
+
+%Additon 
+\subsubsection{Addition}
+\textbf{Behauptung:}  Angenommen sei, dass $f, g, h: \mathbb{N} \rightarrow \mathbb{R}_+$ gegeben sei. Dann gilt: $$f \in \mathcal{O}(h) \land g \in \mathcal{O}(h) \rightarrow f + g \in \mathcal{O}(h) $$ \\
+
+\textbf{Beweis:} Die Voraussetzungen $f \in \mathcal{O} (h)$ und $g \in \mathcal{O} (h)$ impliziern, dass es die Konstanten $c_1, c_2 \in \mathbb{R}_+$ und $k_1 , k_2 \in \mathbb{N}$ gibt, so dass die folgenden Aussagen zutreffend sind: $$\forall n \in \mathbb{N} : (n \geq k_1 \rightarrow f(n) \leq c_1 \cdot h(n))$$ 
+	 $$\forall n \in \mathbb{N} : (n \geq k_2 \rightarrow g(n) \leq c_2 \cdot h(n))$$ 
+	 Wenn mann nun $k:= max(k_1,k_2)$ und $c:=c_1 + c_2$ definiert, dann gelten für $n \geq k$:
+	 $$f(n) \leq c_1 \cdot h(n) \quad \textrm{und} \quad g(n) \leq c_2 \cdot h(n)$$ 
+	 Diese beiden Gleichungen werden nun addiert und $h(n)$ wird ausgeklammert: 
+	 $$f(n) + g(n) \leq (c_1 + c_2) \cdot h(n)$$ Da die Defintion $c:= c_1 + c_2$ gegeben ist, kann die Formel vereinfacht werden: 
+	 $$f(n) + g(n) \leq c \cdot h(n)$$
+	 und dies bestätigt die Behauptung, dass $f + g \in \mathcal{O}(h) $ gilt.\\
+
+% Transitivität der O-Notation
+\subsubsection{Transitivität der O-Notation}
+\textbf{Behauptung:} Angenommen sei, dass $f, g, h: \mathbb{N} \rightarrow \mathbb{R}_+$ gegeben sei. Dann gilt: $$f \in \mathcal{O}(g) \land g \in \mathcal{O}(h) \rightarrow f \in \mathcal{O}(h) $$ \\
+
+\textbf{Beweis:} Die Voraussetzungen $f \in \mathcal{O} (g)$ und $g \in \mathcal{O} (h)$  implizieren, dass es die Konstanten $c_1, c_2 \in \mathbb{R}_+$ und $k_1, k_2\in \mathbb{N}$ gibt, so dass die folgenden Aussagen zutreffend sind: $$\forall n \in \mathbb{N} : (n \geq k_1 \rightarrow f(n) \leq c_1 \cdot g(n))$$ 
+	$$\forall n \in \mathbb{N} : (n \geq k_2 \rightarrow g(n) \leq c_2 \cdot h(n))$$ 
+	Wenn man nun $k:= max(k_1,k_2)$ und $c:=c_1 \cdot c_2$ definiert, dann gelten für $n \geq k$:
+	$$f(n) \leq c_1 \cdot g(n) \quad \textrm{und} \quad g(n) \leq c_2 \cdot h(n)$$ \\
+	Nun wird die rechte Ungleichung mit $c_1$ multipliziert:
+	$$f(n) \leq c_1 \cdot  g(n) \quad \textrm{und} \quad c_1 \cdot g(n) \leq c_1 \cdot c_2 \cdot h(n)$$
+	Durch die Definition von $c$ kann die Gleichung vereinfacht werden: 
+	$$f(n) \leq  c_1 \cdot  g(n) \quad \textrm{und} \quad c_1 \cdot g(n) \leq c \cdot h(n)$$
+	Die Transitivität der Relation $\leq$ impliziert sofot, dass $f(n) \leq c \cdot h(n)$ für $n \geq k$.
+
+
+%Grenzwert der O-Notation
+\subsubsection{Grenzwert der $\mathcal{O}$-Notation}
+\textbf{Behauptung:} Angenommen sei, dass $f, g: \mathbb{N} \rightarrow \mathbb{R}_+$ gegeben sei. Des Weiteren sei anzunehmen, dass der Grenzwert von $$\lim_{n \rightarrow \infty} \frac{f(n)}{g(n)}$$ existiert. Dann gilt $f \in \mathcal{O}(g)$\\
+	\textbf{Beweis:} Wir definieren $$\lambda := \lim_{n \rightarrow \infty} \frac{f(n)}{g(n)} $$
+	Da wir durch unsere Annahme wissen, dass der Grenzwert existiert, wissen wir, dass folgendes gilt:
+	$$\forall \varepsilon \in \mathbb{R}_+ : \exists k \in \mathbb{R} : \forall n \in \mathbb{N} : (n \geq k \rightarrow \vert \frac{f(n)}{g(n)} - \lambda \vert <  \varepsilon )$$
+	Da sies eine valide für alle Werte von $\varepsilon$ ist, definieren wir $\varepsilon : = 1$. Dann existiert eine Zahl $k \in \mathbb{N}$, so dass für alle $n \in \mathbb{N}$ und $n \geq k$ die folgende Ungleichung gilt:
+	$$\vert \frac{f(n)}{g(n)} - \lambda \vert \leq 1$$  
+	Wir multiplizieren die Ungleichung mit $g(n)$. Da $g(n)$ positiv ist, erhält man:
+	$$\vert f(n) - \lambda \cdot g(n) \vert \leq g(n)$$
+	Durch die Dreiecksungleichung erhält man:
+	$$f(n) \leq (1+ \lambda ) \cdot g(n)$$
+	Nun definieren wir $c:= 1 + \lambda$ und zeigen, dass $f(n) \leq c \cdot g(n)$ für alle $n \geq k$ gilt.
+
+\newpage	
+%Rekurrenzgleichungen
+\subsection{Lösen einer Rekurrenzgleichung}
+Das Lösen einer Rekurrenzgleichung erfolgt in drei wesentlichen Schritten, allerdings muss man immer beachten, dass es zwei Sonderfälle gibt, die eine Abweichung dieses Verfahrens führen. Die Schritte und die Abweichungen bei einer Ausnahme werden nun kurz und knapp beschrieben. \\
+
+\subsubsection{Lösen einer Rekurrenzgleichung}
+\begin{enumerate}
+	\item Homogenen Teil lösen 
+	\begin{enumerate}
+	\item Man betrachtet nur den homogenen Teil der inhomogenen Rekurrzenzgleichung und verwendet den Ansatz $x_n = \lambda ^n$
+	\end{enumerate}
+	\item Inhomogenen Teil lösen
+	\begin{enumerate}
+	\item Nun wird der inhomogene Teil der Gleichung auch betrachtet und man verwendet den Ansatz $x_n = \gamma ^n$
+	\end{enumerate}
+	\item $\alpha$ und $\beta$ mit Hilfe der Anfangsbedingungen bestimmen
+	\begin{enumerate}
+	\item Man setzt alle nun bestimmten Variablen ein und stellt ein Gleichungssystem mit den gegebenen Anfangsbedingungen auf, um $\alpha$ und $\beta$ zu bestimmen.
+	\item Nun werden alle Variablen in die allgemeine Gleichung eingesetzt und man hat das fertige Ergebnis der inhomogenen Rekurrenzgleichung vorliegen.
+	\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Ausnahmen beim Lösen von Rekurrenzgleichungen}
+\begin{enumerate}
+	\item $\lambda_1 = \lambda_2$:\quad $x_n = \alpha \cdot \lambda^n + \beta \cdot \lambda^n \cdot n + \gamma$
+	\item a + b = 1: \quad Ansatz: $n \cdot \gamma$ im ihnhomogenen Rekurrenzteil
+\end{enumerate}
+
+
+
+\newpage
+
+\bibliographystyle{ieeetr}
+\bibliography{literatur}
+\end{document}
