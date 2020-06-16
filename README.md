@@ -1,8 +1,8 @@
 # Algorithm
 Algorithmen 2020 Cyber Security Semester 2 an der DHBW Mannheim
 
-Dieses Repo ist eine Zusammenfassung all meiner Materialen, die ich für die Vorbereitung der Algorithmen Klausur im 2. Semester 
-verwendet habe. Des Weiteren finden sich in diesm Repo alle Notizen und bearbeitete Aufgaben, die in der Vorbereitungszeit auf
+Dieses Repo ist eine Zusammenfassung all meiner Materialien, die ich für die Vorbereitung der Algorithmen Klausur im 2. Semester 
+verwendet habe. Des Weiteren finden sich in diesem Repo alle Notizen und bearbeiteten Aufgaben, die in der Vorbereitungszeit auf
 die Klausur entstanden sind. 
 
 Ich bin immer für Fragen offen und freue mich über einen Pull Request, bei Fehlern. 
